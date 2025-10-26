@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Poultry Farm Manager</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="container">
+    <h1>Poultry Farm Manager</h1>
+
+    <div id="auth-section">
+      <div class="card">
+        <h2>Farmer - Sign Up</h2>
+        <input id="signup-name" placeholder="Full name" />
+        <input id="signup-email" placeholder="Email" />
+        <input id="signup-password" type="password" placeholder="Password" />
+        <button id="btn-signup">Sign Up as Farmer</button>
+      </div>
+
+      <div class="card">
+        <h2>Login (Farmer / Manager)</h2>
+        <input id="login-email" placeholder="Email" />
+        <input id="login-password" type="password" placeholder="Password" />
+        <button id="btn-login">Login</button>
+        <button id="btn-logout" style="display:none">Logout</button>
+      </div>
+    </div>
+
+    <div id="farmer-section" class="hidden">
+      <h2>Farmer Data Entry</h2>
+      <div class="card">
+        <label>Date</label>
+        <input id="entry-date" type="date" />
+
+        <label>Bird Count</label>
+        <input id="bird-count" type="number" />
+
+        <label>Feed Used (kg)</label>
+        <input id="feed-used" type="number" step="0.01" />
+
+        <label>Medicine Given</label>
+        <input id="medicine" placeholder="Name or none" />
+
+        <label>Mortality (number)</label>
+        <input id="mortality" type="number" />
+
+        <label>Notes</label>
+        <textarea id="notes" placeholder="Optional notes"></textarea>
+
+        <button id="btn-save-entry">Save Entry</button>
+      </div>
+
+      <div class="card">
+        <h3>Your Recent Entries</h3>
+        <div id="your-entries"></div>
+      </div>
+    </div>
+
+    <div id="manager-section" class="hidden">
+      <h2>Manager Dashboard — All Farmers</h2>
+      <div class="card">
+        <label>Filter by farmer email (optional)</label>
+        <input id="filter-email" placeholder="farmer@example.com" />
+        <button id="btn-filter">Filter</button>
+        <button id="btn-clear-filter">Clear</button>
+      </div>
+
+      <div class="card">
+        <table id="entries-table">
+          <thead>
+            <tr>
+              <th>Date</th><th>Farmer</th><th>Birds</th><th>Feed(kg)</th><th>Medicine</th><th>Mortality</th><th>Notes</th>
+            </tr>
+          </thead>
+          <tbody></tbody>
+        </table>
+      </div>
+    </div>
+
+    <div id="message" class="message"></div>
+  </div>
+
+  <!-- Firebase compat SDK (easy for beginners) -->
+  <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-auth-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-firestore-compat.js"></script>
+
+  <script src="app.js"></script>
+</body>
+</html>
